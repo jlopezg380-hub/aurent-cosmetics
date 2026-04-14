@@ -64,16 +64,18 @@
 
     /* Header marca */
     .brand-header {
-      display: inline-flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 3.2rem;
-      padding: 0.9rem 1.35rem;
-      background: rgba(255, 255, 255, 0.38);
-      border: 1px solid rgba(176, 138, 90, 0.18);
-      border-radius: 999px;
-      box-shadow: 0 14px 28px -18px rgba(78, 59, 42, 0.14);
-      backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;   /* 👈 centra horizontal */
+  align-items: center;
+  gap: 18px;
+  margin: 0 auto 3.2rem;     /* 👈 centra el bloque */
+  padding: 0.9rem 1.35rem;
+  width: fit-content;        /* 👈 hace que el fondo se ajuste */
+  background: rgba(255, 255, 255, 0.38);
+  border: 1px solid rgba(176, 138, 90, 0.18);
+  border-radius: 999px;
+  box-shadow: 0 14px 28px -18px rgba(78, 59, 42, 0.14);
+  backdrop-filter: blur(4px);
     }
 
     .brand-logo {
