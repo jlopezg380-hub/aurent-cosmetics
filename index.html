@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AURENT COSMETICS | Colecciones</title>
+  <title>AURENT COSMETICS | Belleza con elegancia</title>
+  <meta name="description" content="Descubre el universo de belleza de Aurent Cosmetics. Explora nuestras colecciones y marcas seleccionadas con una experiencia premium." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-  <link rel="icon" href="favicon.png" sizes="32x32">
-  <link rel="icon" href="favicon.png" sizes="192x192">
-  <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="shortcut icon" href="favicon.png">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="shortcut icon" href="/favicon.png">
 
   <style>
     * {
@@ -25,6 +26,7 @@
     :root {
       --bg: #F5EBDD;
       --bg-soft: #EFE2D2;
+      --bg-strong: #EAD8C3;
       --card: rgba(255, 255, 255, 0.72);
       --white: #FFFFFF;
       --gold: #B08A5A;
@@ -33,6 +35,11 @@
       --text-soft: #7E6854;
       --border: rgba(176, 138, 90, 0.18);
       --shadow: 0 16px 30px -14px rgba(78, 59, 42, 0.08);
+      --shadow-strong: 0 24px 40px -18px rgba(78, 59, 42, 0.14);
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -49,105 +56,267 @@
       letter-spacing: -0.02em;
     }
 
-    .catalogo-wrapper {
-      max-width: 1320px;
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1320px, calc(100% - 2rem));
       margin: 0 auto;
-      padding: 2rem 1.25rem 3rem;
     }
 
     .decorative-line {
-      width: 60px;
+      width: 62px;
       height: 2px;
       background: var(--gold);
-      margin: 0.9rem auto 0;
+      margin: 1rem 0 0;
     }
 
-    /* Header marca */
-    .brand-header {
+    .center-line {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245, 235, 221, 0.84);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(176, 138, 90, 0.1);
+    }
+
+    .header-inner {
+      min-height: 84px;
       display: flex;
-      justify-content: center;
       align-items: center;
-      gap: 18px;
-      margin: 0 auto 3.2rem;
-      padding: 0.9rem 1.35rem;
-      width: fit-content;
-      background: rgba(255, 255, 255, 0.38);
-      border: 1px solid rgba(176, 138, 90, 0.18);
-      border-radius: 999px;
-      box-shadow: 0 14px 28px -18px rgba(78, 59, 42, 0.14);
-      backdrop-filter: blur(4px);
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--text);
     }
 
     .brand-logo {
-      width: 72px;
-      height: 72px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
-      background: #F8F1E8;
+      background: rgba(255,255,255,0.6);
+      border: 1px solid rgba(176, 138, 90, 0.22);
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1.6px solid rgba(176, 138, 90, 0.35);
+      box-shadow: 0 8px 18px rgba(78, 59, 42, 0.08);
       overflow: hidden;
       flex-shrink: 0;
-      box-shadow: 0 8px 18px rgba(78, 59, 42, 0.08);
     }
 
     .brand-logo img {
-      width: 58px;
-      height: 58px;
+      width: 44px;
+      height: 44px;
       object-fit: contain;
-      display: block;
     }
 
     .brand-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
+      font-size: 1.9rem;
+      letter-spacing: 3px;
       line-height: 1;
-      font-weight: 500;
-      color: var(--text);
-      letter-spacing: 4px;
       text-transform: uppercase;
       white-space: nowrap;
     }
 
     .brand-name span {
       color: var(--gold);
-      font-weight: 400;
     }
 
-    /* Encabezado sección */
-    .catalog-header {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 3rem;
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
     }
 
-    .catalog-header h1 {
-      font-size: 3.25rem;
-      color: var(--text);
-      margin-bottom: 0.35rem;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0.9rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
     }
 
-    .catalog-subtitle {
-      font-size: 1.05rem;
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: white;
+      border: 1px solid var(--gold);
+      box-shadow: 0 12px 24px rgba(176, 138, 90, 0.22);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-dark);
+      border-color: var(--gold-dark);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.52);
       color: var(--gold-dark);
-      font-weight: 350;
+      border: 1px solid rgba(176, 138, 90, 0.24);
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      border-color: rgba(176, 138, 90, 0.36);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 4rem 0 3.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-copy .eyebrow {
+      display: inline-block;
+      margin-bottom: 0.9rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 0.95;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .hero-copy p {
       max-width: 620px;
-      margin: 0 auto;
+      font-size: 1.06rem;
+      color: var(--text-soft);
+      margin-bottom: 1.4rem;
     }
 
-    /* Colecciones */
-    .collections-section {
-      margin: 0 0 3.4rem;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.3rem;
     }
 
-    .collections-intro {
+    .hero-note {
+      color: var(--gold-dark);
+      font-size: 0.95rem;
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 560px;
+      padding: 1.2rem;
+      border-radius: 36px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.46) 100%);
+      border: 1px solid rgba(176, 138, 90, 0.16);
+      box-shadow: var(--shadow-strong);
+      overflow: hidden;
+    }
+
+    .hero-frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(234,216,195,0.9), rgba(255,255,255,0.7));
+      border: 1px solid rgba(176, 138, 90, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .hero-badge {
+      position: absolute;
+      border-radius: 999px;
+      padding: 0.7rem 1rem;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(176, 138, 90, 0.18);
+      box-shadow: 0 10px 20px rgba(78, 59, 42, 0.08);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold-dark);
+      backdrop-filter: blur(6px);
+    }
+
+    .badge-top {
+      top: 18px;
+      left: 18px;
+    }
+
+    .badge-bottom {
+      right: 18px;
+      bottom: 18px;
+    }
+
+    .hero-logo-box {
+      width: min(390px, 100%);
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(176, 138, 90, 0.18);
+      box-shadow: 0 18px 34px rgba(78, 59, 42, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem;
+    }
+
+    .hero-logo-box img {
+      width: 100%;
+      max-width: 220px;
+      object-fit: contain;
+    }
+
+    /* Features */
+    .section {
+      padding: 2rem 0 4rem;
+    }
+
+    .section-header {
+      max-width: 760px;
       text-align: center;
-      max-width: 740px;
-      margin: 0 auto 2.4rem;
+      margin: 0 auto 2.2rem;
     }
 
-    .collections-label {
+    .section-label {
       display: inline-block;
       font-size: 0.78rem;
       text-transform: uppercase;
@@ -157,150 +326,263 @@
       margin-bottom: 0.7rem;
     }
 
-    .collections-intro h2 {
-      font-size: 2.6rem;
-      color: var(--text);
+    .section-header h2 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
       margin-bottom: 0.55rem;
+      color: var(--text);
     }
 
-    .collections-intro p {
+    .section-header p {
       font-size: 1rem;
       color: var(--text-soft);
-      max-width: 620px;
-      margin: 0 auto;
     }
 
-    .collections-grid {
+    .features-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.35rem;
     }
 
-    .collection-card {
+    .feature-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 28px;
-      padding: 2rem 1.3rem 1.7rem;
-      text-decoration: none;
-      color: var(--text);
-      text-align: center;
+      padding: 1.8rem 1.35rem;
       box-shadow: var(--shadow);
       backdrop-filter: blur(4px);
-      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-      min-height: 250px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
+      text-align: center;
     }
 
-    .collection-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 100%);
-      pointer-events: none;
-    }
-
-    .collection-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 22px 36px -16px rgba(138, 104, 70, 0.16);
-      border-color: rgba(176, 138, 90, 0.34);
-    }
-
-    .collection-icon {
-      width: 96px;
-      height: 96px;
-      border-radius: 22px;
+    .feature-icon {
+      width: 74px;
+      height: 74px;
       margin: 0 auto 1rem;
-      background: #FFFFFF;
+      border-radius: 22px;
+      background: #fff;
       border: 1px solid #E8D8C7;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 12px;
+      color: var(--gold);
+      font-size: 1.7rem;
       box-shadow: 0 8px 18px rgba(78, 59, 42, 0.05);
     }
 
-    .collection-icon img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .collection-card h3 {
-      font-size: 1.65rem;
-      margin-bottom: 0.4rem;
+    .feature-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.45rem;
       color: #3E2E1F;
     }
 
-    .collection-card p {
-      font-size: 0.92rem;
+    .feature-card p {
+      font-size: 0.94rem;
       color: var(--text-soft);
-      max-width: 210px;
-      margin: 0 auto 1rem;
     }
 
-    .collection-link {
-      display: inline-flex;
+    /* Split section */
+    .split-section {
+      padding: 1rem 0 4rem;
+    }
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .split-visual,
+    .split-copy {
+      border-radius: 32px;
+      overflow: hidden;
+    }
+
+    .split-visual {
+      min-height: 460px;
+      background: linear-gradient(135deg, rgba(234,216,195,0.95), rgba(255,255,255,0.7));
+      border: 1px solid rgba(176, 138, 90, 0.14);
+      box-shadow: var(--shadow);
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 0.72rem 1.25rem;
-      border-radius: 999px;
-      border: 1px solid rgba(176, 138, 90, 0.28);
-      background: rgba(255,255,255,0.55);
-      color: var(--gold-dark);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.7px;
-      text-transform: uppercase;
-      margin-top: auto;
-      transition: all 0.25s ease;
-    }
-
-    .collection-card:hover .collection-link {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: white;
-    }
-
-    /* Bloque confianza */
-    .trust-bar {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin: 2rem 0 0;
-      background: var(--bg-soft);
       padding: 2rem;
-      border-radius: 34px;
-      box-shadow: inset 0 2px 6px rgba(255,255,255,0.75), 0 8px 12px rgba(0,0,0,0.02);
     }
 
-    .trust-item {
-      text-align: center;
-      color: var(--text);
+    .visual-inner {
+      width: 100%;
+      max-width: 430px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(176, 138, 90, 0.16);
+      border-radius: 30px;
+      padding: 2rem;
+      box-shadow: 0 16px 30px rgba(78, 59, 42, 0.08);
     }
 
-    .trust-item i {
-      font-size: 2rem;
+    .visual-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 1.4rem;
+    }
+
+    .visual-mini-logo {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid rgba(176, 138, 90, 0.18);
+      padding: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .visual-mini-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .visual-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      line-height: 1;
+      letter-spacing: 2px;
+    }
+
+    .visual-title span {
       color: var(--gold);
-      margin-bottom: 0.55rem;
     }
 
-    .trust-item h4 {
-      font-size: 1.2rem;
-      margin-bottom: 0.2rem;
+    .visual-list {
+      display: grid;
+      gap: 0.9rem;
     }
 
-    .trust-item p {
-      font-size: 0.84rem;
-      color: #6B5743;
+    .visual-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.95rem 1rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(176, 138, 90, 0.12);
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 500;
     }
 
-    /* Botones flotantes */
+    .visual-item i {
+      color: var(--gold);
+    }
+
+    .split-copy {
+      background: rgba(255,255,255,0.46);
+      border: 1px solid rgba(176, 138, 90, 0.14);
+      box-shadow: var(--shadow);
+      padding: 2.5rem 2.2rem;
+    }
+
+    .split-copy h2 {
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      margin-bottom: 0.8rem;
+    }
+
+    .split-copy p {
+      color: var(--text-soft);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .benefits-list {
+      display: grid;
+      gap: 0.85rem;
+      margin: 1.4rem 0 1.8rem;
+    }
+
+    .benefits-list li {
+      list-style: none;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--text);
+      font-size: 0.96rem;
+    }
+
+    .benefits-list i {
+      color: var(--gold);
+      font-size: 1rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    /* CTA block */
+    .cta-block {
+      padding: 1rem 0 4.5rem;
+    }
+
+    .cta-card {
+      background: linear-gradient(135deg, rgba(234,216,195,0.95), rgba(255,255,255,0.75));
+      border: 1px solid rgba(176, 138, 90, 0.15);
+      border-radius: 36px;
+      box-shadow: var(--shadow-strong);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .cta-card h2 {
+      font-size: clamp(2.3rem, 4vw, 3.6rem);
+      margin-bottom: 0.8rem;
+    }
+
+    .cta-card p {
+      max-width: 700px;
+      margin: 0 auto 1.4rem;
+      color: var(--text-soft);
+      font-size: 1rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 0.9rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 1.5rem 0 2.5rem;
+      border-top: 1px solid rgba(176, 138, 90, 0.12);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      color: var(--text-soft);
+      font-size: 0.92rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--gold-dark);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* Floating buttons */
     .instagram-float,
     .whatsapp-float {
       position: fixed;
@@ -317,7 +599,7 @@
       box-shadow: 0 12px 22px rgba(0,0,0,0.12);
       z-index: 999;
       border: 2px solid rgba(255,255,255,0.7);
-      transition: transform 0.25s ease, filter 0.25s ease;
+      transition: transform 0.25s ease, filter 0.25s ease, background 0.25s ease;
     }
 
     .whatsapp-float {
@@ -342,105 +624,123 @@
 
     /* Responsive */
     @media (max-width: 1100px) {
-      .collections-grid {
-        grid-template-columns: repeat(3, 1fr);
+      .hero-grid,
+      .split-grid {
+        grid-template-columns: 1fr;
       }
 
-      .brand-name {
-        font-size: 2.6rem;
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-card {
+        min-height: 460px;
       }
     }
 
-    @media (max-width: 820px) {
-      .catalog-header h1 {
-        font-size: 2.7rem;
-      }
-
-      .collections-intro h2 {
-        font-size: 2.2rem;
-      }
-
-      .collections-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .trust-bar {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .brand-header {
-        gap: 14px;
-        padding: 0.8rem 1.1rem;
-      }
-
-      .brand-logo {
-        width: 62px;
-        height: 62px;
-      }
-
-      .brand-logo img {
-        width: 50px;
-        height: 50px;
+    @media (max-width: 760px) {
+      .header-inner {
+        min-height: auto;
+        padding: 0.9rem 0;
+        flex-direction: column;
+        justify-content: center;
       }
 
       .brand-name {
-        font-size: 2.2rem;
-        letter-spacing: 3px;
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
+
+      .hero-copy,
+      .section-header,
+      .cta-card {
+        text-align: center;
+      }
+
+      .hero-copy p,
+      .section-header p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .decorative-line:not(.center-line) {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions,
+      .cta-actions {
+        justify-content: center;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .split-copy {
+        padding: 2rem 1.35rem;
+      }
+
+      .cta-card {
+        padding: 2.3rem 1.2rem;
+      }
+
+      .footer-inner {
+        justify-content: center;
+        text-align: center;
       }
     }
 
     @media (max-width: 560px) {
-      .catalogo-wrapper {
-        padding: 1.3rem 1rem 2.2rem;
+      .container {
+        width: min(100% - 1rem, 1320px);
       }
 
-      .brand-header {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-        border-radius: 28px;
-        white-space: normal;
+      .hero-copy h1 {
+        font-size: 2.7rem;
       }
 
-      .brand-name {
-        font-size: 1.55rem;
-        letter-spacing: 2px;
-        white-space: normal;
-      }
-
-      .catalog-header {
-        margin-bottom: 2.3rem;
-      }
-
-      .catalog-header h1 {
-        font-size: 2.25rem;
-      }
-
-      .catalog-subtitle {
+      .hero-copy p,
+      .split-copy p,
+      .cta-card p {
         font-size: 0.95rem;
       }
 
-      .collections-intro h2 {
-        font-size: 1.9rem;
+      .hero-card {
+        min-height: 380px;
+        padding: 0.8rem;
+        border-radius: 24px;
       }
 
-      .collections-grid {
-        grid-template-columns: 1fr;
+      .hero-frame {
+        border-radius: 20px;
+        padding: 1.2rem;
       }
 
-      .collection-card {
+      .hero-logo-box {
+        padding: 1.8rem;
+      }
+
+      .hero-logo-box img {
+        max-width: 150px;
+      }
+
+      .hero-badge {
+        font-size: 0.72rem;
+        padding: 0.55rem 0.8rem;
+      }
+
+      .split-visual {
         min-height: auto;
-        padding: 1.7rem 1.2rem 1.4rem;
+        padding: 1.2rem;
       }
 
-      .collection-icon {
-        width: 88px;
-        height: 88px;
-      }
-
-      .trust-bar {
-        grid-template-columns: 1fr;
-        padding: 1.5rem;
+      .visual-inner {
+        padding: 1.3rem;
       }
 
       .whatsapp-float,
@@ -462,117 +762,192 @@
   </style>
 </head>
 <body>
-  <div class="catalogo-wrapper">
 
-    <div class="brand-header">
-      <div class="brand-logo">
-        <img src="assets/logos/aurentcosmetics.png" alt="AURENT COSMETICS">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand" aria-label="Inicio Aurent Cosmetics">
+        <div class="brand-logo">
+          <img src="/assets/logos/aurentcosmetics.png" alt="AURENT COSMETICS">
+        </div>
+        <div class="brand-name">AURENT <span>COSMETICS</span></div>
+      </a>
+
+      <div class="header-actions">
+        <a href="/collections/" class="btn btn-secondary">Ver colecciones</a>
+        <a href="https://wa.me/573024131817?text=Hola%20me%20interesan%20sus%20productos%20de%20belleza" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Escríbenos</a>
       </div>
-      <div class="brand-name">AURENT <span>COSMETICS</span></div>
     </div>
+  </header>
 
-    <div class="catalog-header">
-      <h1>Nuestro Catálogo</h1>
-      <p class="catalog-subtitle">Descubre nuestras marcas seleccionadas para realzar tu belleza con elegancia y cuidado.</p>
-      <div class="decorative-line"></div>
-    </div>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Belleza con elegancia</span>
+          <h1>Tu universo de belleza empieza aquí.</h1>
+          <p>
+            Descubre una selección curada de marcas y colecciones pensadas para resaltar tu estilo, elevar tu rutina y ofrecer una experiencia visual y estética más refinada.
+          </p>
 
-    <section class="collections-section">
-      <div class="collections-intro">
-        <span class="collections-label">Colecciones</span>
-        <h2>Explora nuestras marcas</h2>
-        <p>Selecciona una colección y descubre el universo de belleza que mejor se adapta a tu estilo.</p>
-      </div>
-
-      <div class="collections-grid">
-        <a class="collection-card" href="LINK_ATENEA" target="_blank">
-          <div class="collection-icon">
-            <img src="assets/logos/atenea.png" alt="Atenea">
+          <div class="hero-actions">
+            <a href="/collections/" class="btn btn-primary">
+              Explorar colecciones <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="https://www.instagram.com/aurent_cosmetics/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              Ver Instagram <i class="fab fa-instagram"></i>
+            </a>
           </div>
-          <h3>Atenea</h3>
-          <p>Maquillaje y esenciales de belleza con acabado elegante.</p>
-          <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
-        </a>
 
-        <a class="collection-card" href="LINK_MONTOC" target="_blank">
-          <div class="collection-icon">
-            <img src="assets/logos/montoc.png" alt="Montoc">
-          </div>
-          <h3>Montoc</h3>
-          <p>Detalles modernos y productos con estilo profesional.</p>
-          <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
-        </a>
+          <p class="hero-note">Colecciones seleccionadas con enfoque visual, estilo y presencia de marca.</p>
+          <div class="decorative-line"></div>
+        </div>
 
-        <a class="collection-card" href="LINK_BLOOMSHELL" target="_blank">
-          <div class="collection-icon">
-            <img src="assets/logos/bloomshell.png" alt="Bloomshell">
-          </div>
-          <h3>Bloomshell</h3>
-          <p>Propuestas frescas, delicadas y femeninas para tu rutina.</p>
-          <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
-        </a>
+        <div class="hero-card">
+          <div class="hero-frame">
+            <div class="hero-badge badge-top">
+              <i class="fas fa-gem"></i> Selección premium
+            </div>
 
-        <a class="collection-card" href="LINK_ANIK" target="_blank">
-          <div class="collection-icon">
-            <img src="assets/logos/anik.png" alt="Ani K">
-          </div>
-          <h3>Ani K</h3>
-          <p>Una colección versátil para looks diarios y especiales.</p>
-          <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
-        </a>
+            <div class="hero-logo-box">
+              <img src="/assets/logos/aurentcosmetics.png" alt="Logo Aurent Cosmetics">
+            </div>
 
-        <a class="collection-card" href="LINK_RUBYROSE" target="_blank">
-          <div class="collection-icon">
-            <img src="assets/logos/rubyrose.png" alt="Ruby Rose">
+            <div class="hero-badge badge-bottom">
+              <i class="fas fa-star"></i> Estilo, detalle y belleza
+            </div>
           </div>
-          <h3>Ruby Rose</h3>
-          <p>Color, tendencia y maquillaje con mucha personalidad.</p>
-          <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
-        </a>
-
-        <a class="collection-card" href="LINK_PROSA" target="_blank">
-          <div class="collection-icon">
-            <img src="assets/logos/prosa.png" alt="Prosa">
-          </div>
-          <h3>Prosa</h3>
-          <p>Favoritos para ojos definidos y rutina de maquillaje clásica.</p>
-          <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
-        </a>
-
-        <a class="collection-card" href="LINK_GIRLY" target="_blank">
-          <div class="collection-icon">
-            <img src="assets/logos/girly.png" alt="Girly">
-          </div>
-          <h3>Girly</h3>
-          <p>Una selección joven, dulce y visualmente encantadora.</p>
-          <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
-        </a>
+        </div>
       </div>
     </section>
 
-    <div class="trust-bar">
-      <div class="trust-item">
-        <i class="fas fa-shipping-fast"></i>
-        <h4>Envíos rápidos</h4>
-        <p>Despachos ágiles a todo el país</p>
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Nuestra propuesta</span>
+          <h2>Más que productos, una experiencia de marca</h2>
+          <p>
+            En Aurent Cosmetics reunimos colecciones con identidad visual, estilo y personalidad para ofrecer una vitrina de belleza más cuidada y atractiva.
+          </p>
+          <div class="decorative-line center-line"></div>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-gem"></i>
+            </div>
+            <h3>Selección curada</h3>
+            <p>Marcas elegidas por su propuesta estética, presentación y afinidad con una imagen premium.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-sparkles"></i>
+            </div>
+            <h3>Estilo y tendencia</h3>
+            <p>Colecciones pensadas para quienes valoran la belleza, la presencia visual y los detalles bien cuidados.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h3>Atención cercana</h3>
+            <p>Acompañamiento directo por WhatsApp e Instagram para resolver dudas y orientar cada elección.</p>
+          </div>
+        </div>
       </div>
-      <div class="trust-item">
-        <i class="fas fa-gem"></i>
-        <h4>Selección premium</h4>
-        <p>Marcas elegidas con alto estándar visual</p>
+    </section>
+
+    <section class="split-section">
+      <div class="container split-grid">
+        <div class="split-visual">
+          <div class="visual-inner">
+            <div class="visual-top">
+              <div class="visual-mini-logo">
+                <img src="/assets/logos/aurentcosmetics.png" alt="Aurent Cosmetics">
+              </div>
+              <div class="visual-title">AURENT <span>COSMETICS</span></div>
+            </div>
+
+            <div class="visual-list">
+              <div class="visual-item">
+                <span>Marcas seleccionadas</span>
+                <i class="fas fa-check"></i>
+              </div>
+              <div class="visual-item">
+                <span>Colecciones con identidad</span>
+                <i class="fas fa-check"></i>
+              </div>
+              <div class="visual-item">
+                <span>Experiencia visual elegante</span>
+                <i class="fas fa-check"></i>
+              </div>
+              <div class="visual-item">
+                <span>Acceso rápido al catálogo</span>
+                <i class="fas fa-check"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="split-copy">
+          <span class="section-label">Explora</span>
+          <h2>Un home pensado para presentar la marca antes del catálogo</h2>
+          <p>
+            Esta página funciona como punto de entrada: presenta la identidad de Aurent Cosmetics, transmite confianza y prepara al visitante para entrar a las colecciones.
+          </p>
+          <p>
+            Así dejas de usar el catálogo como inicio y pasas a tener una estructura más sólida, más limpia y mucho más escalable.
+          </p>
+
+          <ul class="benefits-list">
+            <li><i class="fas fa-circle-check"></i><span>Mejor presentación de la marca desde el primer clic.</span></li>
+            <li><i class="fas fa-circle-check"></i><span>Separación clara entre home institucional y catálogo comercial.</span></li>
+            <li><i class="fas fa-circle-check"></i><span>Base lista para futuras secciones, campañas y categorías.</span></li>
+          </ul>
+
+          <a href="/collections/" class="btn btn-primary">
+            Entrar al catálogo <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
       </div>
-      <div class="trust-item">
-        <i class="fas fa-lock"></i>
-        <h4>Compra segura</h4>
-        <p>Procesos confiables para tu tranquilidad</p>
+    </section>
+
+    <section class="cta-block">
+      <div class="container">
+        <div class="cta-card">
+          <span class="section-label">Colecciones</span>
+          <h2>Descubre nuestras marcas seleccionadas</h2>
+          <p>
+            Entra a nuestro catálogo y explora un universo de belleza creado para quienes valoran la elegancia, la presentación y una experiencia visual más cuidada.
+          </p>
+
+          <div class="cta-actions">
+            <a href="/collections/" class="btn btn-primary">
+              Ver colecciones <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="https://wa.me/573024131817?text=Hola%20me%20interesan%20sus%20productos%20de%20belleza" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              Hablar por WhatsApp
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="trust-item">
-        <i class="fas fa-headset"></i>
-        <h4>Atención cercana</h4>
-        <p>Acompañamiento personalizado por WhatsApp</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">© 2026 Aurent Cosmetics. Todos los derechos reservados.</div>
+
+      <div class="footer-links">
+        <a href="/">Inicio</a>
+        <a href="/collections/">Colecciones</a>
+        <a href="https://www.instagram.com/aurent_cosmetics/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://wa.me/573024131817?text=Hola%20me%20interesan%20sus%20productos%20de%20belleza" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
     </div>
-  </div>
+  </footer>
 
   <a href="https://www.instagram.com/aurent_cosmetics/"
      class="instagram-float"
@@ -589,5 +964,6 @@
      aria-label="Contactar por WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
+
 </body>
 </html>
