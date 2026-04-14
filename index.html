@@ -175,7 +175,7 @@
       box-shadow: var(--shadow);
       backdrop-filter: blur(4px);
       transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-      min-height: 220px;
+      min-height: 250px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -198,20 +198,24 @@
     }
 
     .collection-icon {
-      width: 76px;
-      height: 76px;
-      border-radius: 50%;
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
       margin: 0 auto 1rem;
-      background: #F3E7D8;
-      border: 1px solid #E4D0B8;
+      background: #FFFFFF;
+      border: 1px solid #E8D8C7;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 12px;
+      box-shadow: 0 8px 18px rgba(78, 59, 42, 0.05);
     }
 
-    .collection-icon i {
-      font-size: 1.6rem;
-      color: var(--gold);
+    .collection-icon img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .collection-card h3 {
@@ -375,6 +379,11 @@
         padding: 1.7rem 1.2rem 1.4rem;
       }
 
+      .collection-icon {
+        width: 88px;
+        height: 88px;
+      }
+
       .trust-bar {
         grid-template-columns: 1fr;
         padding: 1.5rem;
@@ -416,49 +425,63 @@
 
       <div class="collections-grid">
         <a class="collection-card" href="#atenea">
-          <div class="collection-icon"><i class="fas fa-spa"></i></div>
+          <div class="collection-icon">
+            <img src="assets/logos/atenea.png" alt="Atenea">
+          </div>
           <h3>Atenea</h3>
           <p>Maquillaje y esenciales de belleza con acabado elegante.</p>
           <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
         </a>
 
         <a class="collection-card" href="#montoc">
-          <div class="collection-icon"><i class="fas fa-gem"></i></div>
+          <div class="collection-icon">
+            <img src="assets/logos/montoc.png" alt="Montoc">
+          </div>
           <h3>Montoc</h3>
           <p>Detalles modernos y productos con estilo profesional.</p>
           <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
         </a>
 
         <a class="collection-card" href="#bloomshell">
-          <div class="collection-icon"><i class="fas fa-seedling"></i></div>
+          <div class="collection-icon">
+            <img src="assets/logos/bloomshell.png" alt="Bloomshell">
+          </div>
           <h3>Bloomshell</h3>
           <p>Propuestas frescas, delicadas y femeninas para tu rutina.</p>
           <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
         </a>
 
         <a class="collection-card" href="#anik">
-          <div class="collection-icon"><i class="fas fa-star"></i></div>
+          <div class="collection-icon">
+            <img src="assets/logos/anik.png" alt="Ani K">
+          </div>
           <h3>Ani K</h3>
           <p>Una colección versátil para looks diarios y especiales.</p>
           <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
         </a>
 
         <a class="collection-card" href="#rubyrose">
-          <div class="collection-icon"><i class="fas fa-heart"></i></div>
+          <div class="collection-icon">
+            <img src="assets/logos/rubyrose.png" alt="Ruby Rose">
+          </div>
           <h3>Ruby Rose</h3>
           <p>Color, tendencia y maquillaje con mucha personalidad.</p>
           <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
         </a>
 
         <a class="collection-card" href="#prosa">
-          <div class="collection-icon"><i class="fas fa-eye"></i></div>
+          <div class="collection-icon">
+            <img src="assets/logos/prosa.png" alt="Prosa">
+          </div>
           <h3>Prosa</h3>
           <p>Favoritos para ojos definidos y rutina de maquillaje clásica.</p>
           <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
         </a>
 
         <a class="collection-card" href="#girly">
-          <div class="collection-icon"><i class="fas fa-sun"></i></div>
+          <div class="collection-icon">
+            <img src="assets/logos/girly.png" alt="Girly">
+          </div>
           <h3>Girly</h3>
           <p>Una selección joven, dulce y visualmente encantadora.</p>
           <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
