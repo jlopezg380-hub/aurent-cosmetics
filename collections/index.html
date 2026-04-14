@@ -1,1 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURENT COSMETICS | Colecciones</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link rel="icon" href="favicon.png" sizes="32x32">
+  <link rel="icon" href="favicon.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.png">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #F5EBDD;
+      --bg-soft: #EFE2D2;
+      --card: rgba(255, 255, 255, 0.72);
+      --white: #FFFFFF;
+      --gold: #B08A5A;
+      --gold-dark: #8A6846;
+      --text: #4E3B2A;
+      --text-soft: #7E6854;
+      --border: rgba(176, 138, 90, 0.18);
+      --shadow: 0 16px 30px -14px rgba(78, 59, 42, 0.08);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .catalogo-wrapper {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    .decorative-line {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 0.9rem auto 0;
+    }
+
+    /* Header marca */
+    .brand-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      margin: 0 auto 3.2rem;
+      padding: 0.9rem 1.35rem;
+      width: fit-content;
+      background: rgba(255, 255, 255, 0.38);
+      border: 1px solid rgba(176, 138, 90, 0.18);
+      border-radius: 999px;
+      box-shadow: 0 14px 28px -18px rgba(78, 59, 42, 0.14);
+      backdrop-filter: blur(4px);
+    }
+
+    .brand-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #F8F1E8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.6px solid rgba(176, 138, 90, 0.35);
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 8px 18px rgba(78, 59, 42, 0.08);
+    }
+
+    .brand-logo img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      line-height: 1;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .brand-name span {
+      color: var(--gold);
+      font-weight: 400;
+    }
+
+    /* Encabezado sección */
+    .catalog-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 3rem;
+    }
+
+    .catalog-header h1 {
+      font-size: 3.25rem;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .catalog-subtitle {
+      font-size: 1.05rem;
+      color: var(--gold-dark);
+      font-weight: 350;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* Colecciones */
+    .collections-section {
+      margin: 0 0 3.4rem;
+    }
+
+    .collections-intro {
+      text-align: center;
+      max-width: 740px;
+      margin: 0 auto 2.4rem;
+    }
+
+    .collections-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+    }
+
+    .collections-intro h2 {
+      font-size: 2.6rem;
+      color: var(--text);
+      margin-bottom: 0.55rem;
+    }
+
+    .collections-intro p {
+      font-size: 1rem;
+      color: var(--text-soft);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.35rem;
+    }
+
+    .collection-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 2rem 1.3rem 1.7rem;
+      text-decoration: none;
+      color: var(--text);
+      text-align: center;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(4px);
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .collection-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 100%);
+      pointer-events: none;
+    }
+
+    .collection-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 36px -16px rgba(138, 104, 70, 0.16);
+      border-color: rgba(176, 138, 90, 0.34);
+    }
+
+    .collection-icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
+      margin: 0 auto 1rem;
+      background: #FFFFFF;
+      border: 1px solid #E8D8C7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      box-shadow: 0 8px 18px rgba(78, 59, 42, 0.05);
+    }
+
+    .collection-icon img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .collection-card h3 {
+      font-size: 1.65rem;
+      margin-bottom: 0.4rem;
+      color: #3E2E1F;
+    }
+
+    .collection-card p {
+      font-size: 0.92rem;
+      color: var(--text-soft);
+      max-width: 210px;
+      margin: 0 auto 1rem;
+    }
+
+    .collection-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0.72rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid rgba(176, 138, 90, 0.28);
+      background: rgba(255,255,255,0.55);
+      color: var(--gold-dark);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      margin-top: auto;
+      transition: all 0.25s ease;
+    }
+
+    .collection-card:hover .collection-link {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: white;
+    }
+
+    /* Bloque confianza */
+    .trust-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0 0;
+      background: var(--bg-soft);
+      padding: 2rem;
+      border-radius: 34px;
+      box-shadow: inset 0 2px 6px rgba(255,255,255,0.75), 0 8px 12px rgba(0,0,0,0.02);
+    }
+
+    .trust-item {
+      text-align: center;
+      color: var(--text);
+    }
+
+    .trust-item i {
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 0.55rem;
+    }
+
+    .trust-item h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .trust-item p {
+      font-size: 0.84rem;
+      color: #6B5743;
+    }
+
+    /* Botones flotantes */
+    .instagram-float,
+    .whatsapp-float {
+      position: fixed;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      text-decoration: none;
+      box-shadow: 0 12px 22px rgba(0,0,0,0.12);
+      z-index: 999;
+      border: 2px solid rgba(255,255,255,0.7);
+      transition: transform 0.25s ease, filter 0.25s ease;
+    }
+
+    .whatsapp-float {
+      bottom: 24px;
+      background: #25D366;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      background: #128C7E;
+    }
+
+    .instagram-float {
+      bottom: 96px;
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+
+    .instagram-float:hover {
+      transform: scale(1.08);
+      filter: brightness(0.92);
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .collections-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .brand-name {
+        font-size: 2.6rem;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .catalog-header h1 {
+        font-size: 2.7rem;
+      }
+
+      .collections-intro h2 {
+        font-size: 2.2rem;
+      }
+
+      .collections-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .trust-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .brand-header {
+        gap: 14px;
+        padding: 0.8rem 1.1rem;
+      }
+
+      .brand-logo {
+        width: 62px;
+        height: 62px;
+      }
+
+      .brand-logo img {
+        width: 50px;
+        height: 50px;
+      }
+
+      .brand-name {
+        font-size: 2.2rem;
+        letter-spacing: 3px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .catalogo-wrapper {
+        padding: 1.3rem 1rem 2.2rem;
+      }
+
+      .brand-header {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        border-radius: 28px;
+        white-space: normal;
+      }
+
+      .brand-name {
+        font-size: 1.55rem;
+        letter-spacing: 2px;
+        white-space: normal;
+      }
+
+      .catalog-header {
+        margin-bottom: 2.3rem;
+      }
+
+      .catalog-header h1 {
+        font-size: 2.25rem;
+      }
+
+      .catalog-subtitle {
+        font-size: 0.95rem;
+      }
+
+      .collections-intro h2 {
+        font-size: 1.9rem;
+      }
+
+      .collections-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .collection-card {
+        min-height: auto;
+        padding: 1.7rem 1.2rem 1.4rem;
+      }
+
+      .collection-icon {
+        width: 88px;
+        height: 88px;
+      }
+
+      .trust-bar {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+      }
+
+      .whatsapp-float,
+      .instagram-float {
+        width: 54px;
+        height: 54px;
+        font-size: 27px;
+        right: 16px;
+      }
+
+      .whatsapp-float {
+        bottom: 16px;
+      }
+
+      .instagram-float {
+        bottom: 82px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="catalogo-wrapper">
+
+    <div class="brand-header">
+      <div class="brand-logo">
+        <img src="assets/logos/aurentcosmetics.png" alt="AURENT COSMETICS">
+      </div>
+      <div class="brand-name">AURENT <span>COSMETICS</span></div>
+    </div>
+
+    <div class="catalog-header">
+      <h1>Nuestro Catálogo</h1>
+      <p class="catalog-subtitle">Descubre nuestras marcas seleccionadas para realzar tu belleza con elegancia y cuidado.</p>
+      <div class="decorative-line"></div>
+    </div>
+
+    <section class="collections-section">
+      <div class="collections-intro">
+        <span class="collections-label">Colecciones</span>
+        <h2>Explora nuestras marcas</h2>
+        <p>Selecciona una colección y descubre el universo de belleza que mejor se adapta a tu estilo.</p>
+      </div>
+
+      <div class="collections-grid">
+        <a class="collection-card" href="LINK_ATENEA" target="_blank">
+          <div class="collection-icon">
+            <img src="assets/logos/atenea.png" alt="Atenea">
+          </div>
+          <h3>Atenea</h3>
+          <p>Maquillaje y esenciales de belleza con acabado elegante.</p>
+          <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
+        </a>
+
+        <a class="collection-card" href="LINK_MONTOC" target="_blank">
+          <div class="collection-icon">
+            <img src="assets/logos/montoc.png" alt="Montoc">
+          </div>
+          <h3>Montoc</h3>
+          <p>Detalles modernos y productos con estilo profesional.</p>
+          <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
+        </a>
+
+        <a class="collection-card" href="LINK_BLOOMSHELL" target="_blank">
+          <div class="collection-icon">
+            <img src="assets/logos/bloomshell.png" alt="Bloomshell">
+          </div>
+          <h3>Bloomshell</h3>
+          <p>Propuestas frescas, delicadas y femeninas para tu rutina.</p>
+          <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
+        </a>
+
+        <a class="collection-card" href="LINK_ANIK" target="_blank">
+          <div class="collection-icon">
+            <img src="assets/logos/anik.png" alt="Ani K">
+          </div>
+          <h3>Ani K</h3>
+          <p>Una colección versátil para looks diarios y especiales.</p>
+          <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
+        </a>
+
+        <a class="collection-card" href="LINK_RUBYROSE" target="_blank">
+          <div class="collection-icon">
+            <img src="assets/logos/rubyrose.png" alt="Ruby Rose">
+          </div>
+          <h3>Ruby Rose</h3>
+          <p>Color, tendencia y maquillaje con mucha personalidad.</p>
+          <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
+        </a>
+
+        <a class="collection-card" href="LINK_PROSA" target="_blank">
+          <div class="collection-icon">
+            <img src="assets/logos/prosa.png" alt="Prosa">
+          </div>
+          <h3>Prosa</h3>
+          <p>Favoritos para ojos definidos y rutina de maquillaje clásica.</p>
+          <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
+        </a>
+
+        <a class="collection-card" href="LINK_GIRLY" target="_blank">
+          <div class="collection-icon">
+            <img src="assets/logos/girly.png" alt="Girly">
+          </div>
+          <h3>Girly</h3>
+          <p>Una selección joven, dulce y visualmente encantadora.</p>
+          <span class="collection-link">Ver colección <i class="fas fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </section>
+
+    <div class="trust-bar">
+      <div class="trust-item">
+        <i class="fas fa-shipping-fast"></i>
+        <h4>Envíos rápidos</h4>
+        <p>Despachos ágiles a todo el país</p>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-gem"></i>
+        <h4>Selección premium</h4>
+        <p>Marcas elegidas con alto estándar visual</p>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-lock"></i>
+        <h4>Compra segura</h4>
+        <p>Procesos confiables para tu tranquilidad</p>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-headset"></i>
+        <h4>Atención cercana</h4>
+        <p>Acompañamiento personalizado por WhatsApp</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://www.instagram.com/aurent_cosmetics/"
+     class="instagram-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Visitar Instagram de Aurent Cosmetics">
+    <i class="fab fa-instagram"></i>
+  </a>
+
+  <a href="https://wa.me/573024131817?text=Hola%20me%20interesan%20sus%20productos%20de%20belleza"
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Contactar por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</body>
+</html>
