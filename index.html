@@ -64,18 +64,18 @@
 
     /* Header marca */
     .brand-header {
-  display: flex;
-  justify-content: center;   /* 👈 centra horizontal */
-  align-items: center;
-  gap: 18px;
-  margin: 0 auto 3.2rem;     /* 👈 centra el bloque */
-  padding: 0.9rem 1.35rem;
-  width: fit-content;        /* 👈 hace que el fondo se ajuste */
-  background: rgba(255, 255, 255, 0.38);
-  border: 1px solid rgba(176, 138, 90, 0.18);
-  border-radius: 999px;
-  box-shadow: 0 14px 28px -18px rgba(78, 59, 42, 0.14);
-  backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      margin: 0 auto 3.2rem;
+      padding: 0.9rem 1.35rem;
+      width: fit-content;
+      background: rgba(255, 255, 255, 0.38);
+      border: 1px solid rgba(176, 138, 90, 0.18);
+      border-radius: 999px;
+      box-shadow: 0 14px 28px -18px rgba(78, 59, 42, 0.14);
+      backdrop-filter: blur(4px);
     }
 
     .brand-logo {
@@ -300,15 +300,14 @@
       color: #6B5743;
     }
 
-    /* WhatsApp */
+    /* Botones flotantes */
+    .instagram-float,
     .whatsapp-float {
       position: fixed;
       right: 24px;
-      bottom: 24px;
       width: 60px;
       height: 60px;
       border-radius: 50%;
-      background: #25D366;
       color: white;
       display: flex;
       align-items: center;
@@ -318,12 +317,27 @@
       box-shadow: 0 12px 22px rgba(0,0,0,0.12);
       z-index: 999;
       border: 2px solid rgba(255,255,255,0.7);
-      transition: transform 0.25s ease, background 0.25s ease;
+      transition: transform 0.25s ease, filter 0.25s ease;
+    }
+
+    .whatsapp-float {
+      bottom: 24px;
+      background: #25D366;
     }
 
     .whatsapp-float:hover {
       transform: scale(1.08);
       background: #128C7E;
+    }
+
+    .instagram-float {
+      bottom: 96px;
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+
+    .instagram-float:hover {
+      transform: scale(1.08);
+      filter: brightness(0.92);
     }
 
     /* Responsive */
@@ -429,12 +443,20 @@
         padding: 1.5rem;
       }
 
-      .whatsapp-float {
+      .whatsapp-float,
+      .instagram-float {
         width: 54px;
         height: 54px;
         font-size: 27px;
         right: 16px;
+      }
+
+      .whatsapp-float {
         bottom: 16px;
+      }
+
+      .instagram-float {
+        bottom: 82px;
       }
     }
   </style>
@@ -551,6 +573,14 @@
       </div>
     </div>
   </div>
+
+  <a href="https://www.instagram.com/aurent_cosmetics/"
+     class="instagram-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Visitar Instagram de Aurent Cosmetics">
+    <i class="fab fa-instagram"></i>
+  </a>
 
   <a href="https://wa.me/573024131817?text=Hola%20me%20interesan%20sus%20productos%20de%20belleza"
      class="whatsapp-float"
